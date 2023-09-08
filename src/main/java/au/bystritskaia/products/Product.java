@@ -3,22 +3,48 @@ package au.bystritskaia.products;
 /**
  * Товары
  */
-public class Product {
+public abstract class Product {
 
     /**
      * Количество
      */
     private int quantity = 0;
+
+    private int price = 0;
     /**
      * Имя товара
      */
     private String name = "Какой-то товар";
 
+    public Product(int quantity, int price, String name) {
+        this.quantity = quantity;
+        this.price = price;
+        this.name = name;
+    }
+
+    public abstract String getProductType();
+
     /**
      * Получает количество товара
      */
     public void updateQuantity() {
-        quantity = quantity + 1;
+        quantity -= 1;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     /**

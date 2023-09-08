@@ -17,8 +17,14 @@ public class HotDrink extends Product {
      * Конструктор с температурой
      * @param temp Температура
      */
-    public HotDrink(float temp) {
+    public HotDrink(int quantity, int price, String name, float temp) {
+        super(quantity, price, name);
         this.temperature = temp;
+    }
+
+    @Override
+    public String getProductType() {
+        return "Горячий напиток";
     }
 
     /**

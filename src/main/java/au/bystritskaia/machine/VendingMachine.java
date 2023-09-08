@@ -8,27 +8,24 @@ import java.util.List;
 /**
  * Торговый автомат
  */
-public class VendingMachine {
+public class VendingMachine implements IVendingMachine {
 
-    /**
-     * Список продуктов в торговом автомате
-     */
-    private List<Product> products = new LinkedList<>();
+    private DisplayMenu display = new DisplayMenu();
+    private CoinCollector collector = new CoinCollector();
+    private CoinDisperser disperser = new CoinDisperser();
 
-    /**
-     * Заполняет товары в торговом автомате
-     * @param prods Список продуктов
-     */
-    public void initProducts (List <Product> prods) {
-        this.products = prods;
-
+    @Override
+    public DisplayMenu getDisplay() {
+        return this.display;
     }
 
-    /**
-     * Получает список продуктов в торговом автомате
-     * @return Список продуктов
-     */
-    public List<Product> getProducts() {
-        return this.products;
+    @Override
+    public CoinCollector getCollector() {
+        return this.collector;
+    }
+
+    @Override
+    public CoinDisperser getDisperser() {
+        return this.disperser;
     }
 }
